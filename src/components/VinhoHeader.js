@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#44245A",
         flex: 1.5,
         flexDirection:"row",
-        justifyContent:"center"
+        justifyContent:"center",
+        height: 60
     },
     headerContent: {
         width: "50%",
