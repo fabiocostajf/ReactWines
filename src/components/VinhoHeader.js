@@ -5,7 +5,6 @@ export default class VinhoHeader extends Component {
     render() {
         return (
             <View style={styles.headerMaster}>
-                <Text style={styles.headerContent}> Home  </Text>
                 <Image style={[styles.headerContent, styles.logo]}  source={require('../images/logo.png')} />
             </View>
         );
@@ -26,9 +25,6 @@ const styles = StyleSheet.create({
     headerContent: {
         width: "50%",
         marginTop: 10,
-        color: "#ffffff",
-        fontSize: 16,
-        fontWeight: "bold"
     },
     logo:{
         width:100,

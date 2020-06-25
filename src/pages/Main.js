@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Button, ScrollView, FlatList } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
 
-import VinhoHeader from '../components/VinhoHeader'
-import VinhoFooter from '../components/VinhoFooter'
+import Container from '../components/Container'
 import VinhoLista from '../components/VinhoLista'
 import api from "../services/api"
 
@@ -20,36 +19,47 @@ export default class Main extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <Container>
+        <TouchableOpacity
+            style={styles.submitButton}
+            onPress={this.testando}
+          >
+            <Text style={styles.submitText}>My Wines</Text>
+          </TouchableOpacity>
 
-        <VinhoHeader></VinhoHeader>
-        <Button onPress={this.testando} title="My Wines"></Button>
-        <View style={styles.containerBody}>
           <ScrollView>
-          {
-            this.state.wines.map(wine => (
-              <VinhoLista wine={wine}  key={wine.name}/>
-            ))
-          }
+            {
+              this.state.wines.map(wine => (
+                <VinhoLista wine={wine} key={wine.name} />
+              ))
+            }
           </ScrollView>
-         
-        </View>
+      </Container>
 
-        <VinhoFooter></VinhoFooter>
-      </View>
     )
   }
 }
 
 
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  input: {
+    paddingLeft: 20,
+    margin: 15,
+    height: 40,
+    borderColor: '#44245A',
+    borderWidth: 1
   },
-  containerBody: {
-    backgroundColor: "#F9F9F9",
-    flex:10
-    
+  submitButton: {
+    backgroundColor: '#44245A',
+    padding: 10,
+    margin: 15,
+    height: 40,
+    alignItems: "center",
+    color: '#ffffff'
+  },
+  submitText: {
+    color: "#fff"
   }
 })

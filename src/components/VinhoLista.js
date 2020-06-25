@@ -11,6 +11,7 @@ export default class VinhoHeader extends Component {
                         <Image
                             style={styles.photoContainer}
                             source={{ uri: this.props.wine.image }}
+                            resizeMode="contain"
                         />
                         <View style={styles.InfoContainer}>
                             <Text>Name: {this.props.wine.name}</Text>
@@ -30,17 +31,22 @@ export default class VinhoHeader extends Component {
 const styles = StyleSheet.create({
     wineConatiner: {
         flex: 5,
-        padding: 5
-
+        padding: 5,
+        margin: 1
     },
     photoContainer: {
-        flex: 1.8
-
+        flex: 1.8,
+        borderWidth: 1,
+        borderColor: "#dcdcdc",
+       
 
     },
     InfoContainer: {
         flex: 5,
-        padding: 5
+        padding: 5,
+        borderWidth: 1,
+        borderColor: "#dcdcdc",
+        backgroundColor: "#ffffff"
 
     },
     wineContent: {
