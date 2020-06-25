@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
-export default class VinhoHeader extends Component {
-    render() {
+export default function VinhoHeader(props)  {
+    
         return (
             <View style={styles.headerMaster}>
                 <Image style={[styles.headerContent, styles.logo]}  source={require('../images/logo.png')} />
             </View>
         );
-    }
 }
 
 const styles = StyleSheet.create({

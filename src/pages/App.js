@@ -5,12 +5,13 @@ import { createStackNavigator } from "@react-navigation/stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Login from './Login';
 import Main from './Main';
+import WineDetails from './WineDetails';
 
 const Tab = createBottomTabNavigator()
 
 
-export default class App extends Component {
-  render() {
+export default function App()  {
+  
     return (
       <NavigationContainer>
         <Tab.Navigator 
@@ -25,6 +26,7 @@ export default class App extends Component {
           }}>
           <Tab.Screen name="Login" component={Login} />
           <Tab.Screen name="Main" component={Main} />
+          <Tab.Screen name="WineDetails" component={WineDetails} />
         </Tab.Navigator>
       </NavigationContainer>
 
@@ -32,7 +34,6 @@ export default class App extends Component {
 
 
     )
-  }
 }
 
 

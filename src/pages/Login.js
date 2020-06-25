@@ -4,8 +4,8 @@ import { Text, View, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 
 
 import Container from '../components/Container'
 
-export default class Login extends Component {
-  render() {
+export default function Login (props){
+  
     return (
       <Container>
         <View>
@@ -13,7 +13,7 @@ export default class Login extends Component {
           <TextInput style={styles.input} placeholder="Password" />
           <TouchableOpacity
             style={styles.submitButton}
-            onPress={() => this.props.navigation.navigate("Main")}
+            onPress={() => props.navigation.navigate("Main")}
           >
             <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>
@@ -24,7 +24,6 @@ export default class Login extends Component {
 
 
     )
-  }
 }
 
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState  } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList } from 'react-native';
 
 
@@ -6,38 +6,37 @@ import Container from '../components/Container'
 import VinhoLista from '../components/VinhoLista'
 import api from "../services/api"
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { resposta: "", wines: [] }
-  }
-  testando = async () => {
+export default function Main (props) {
+  const [wines,setWines] = useState([]);  
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { resposta: "", wines: [] }
+  // }
+  const testando = async () => {
     const response = await api.get("/test", {});
-    let s = this.state;
-    s.wines = response.data;
-    this.setState(s)
+    setWines(response.data);
+    
   }
-  render() {
+  
     return (
       <Container>
         <TouchableOpacity
             style={styles.submitButton}
-            onPress={this.testando}
+            onPress={testando}
           >
             <Text style={styles.submitText}>My Wines</Text>
           </TouchableOpacity>
 
           <ScrollView>
             {
-              this.state.wines.map(wine => (
-                <VinhoLista wine={wine} key={wine.name} />
+               wines.map(wine => (
+                <VinhoLista navigation={props.navigation} wine={wine} key={wine.id} />
               ))
             }
           </ScrollView>
       </Container>
 
     )
-  }
 }
 
 

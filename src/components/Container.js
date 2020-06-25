@@ -2,22 +2,21 @@ import React, { Component } from 'react';
 import { View, StyleSheet, But } from 'react-native';
 
 import VinhoHeader from './VinhoHeader'
-export default class Container extends Component {
-    render() {
+export default function Container(props)  {
+    
       return (
         <View style={styles.container}>
   
           <VinhoHeader></VinhoHeader>
           
           <View style={styles.containerBody}>
-          {this.props.children} 
+          {props.children} 
         
            
           </View>
   
         </View>
       )
-    }
   }
   
   

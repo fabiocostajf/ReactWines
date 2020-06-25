@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 
-export default class VinhoHeader extends Component {
-    render() {
+export default function VinhoLista (props) {
+   
         return (
-           
                 <View style={styles.wineConatiner} >
+                    <TouchableOpacity 
+                         onPress={() => props.navigation.navigate("WineDetails")}
+                    >
                     <View style={styles.wineContent}>
                         <Image
                             style={styles.photoContainer}
-                            source={{ uri: this.props.wine.image }}
+                            source={{ uri: props.wine.image }}
                             resizeMode="contain"
                         />
                         <View style={styles.InfoContainer}>
-                            <Text>Name: {this.props.wine.name}</Text>
-                            <Text>Type: {this.props.wine.type}</Text>
-                            <Text>Price: R${this.props.wine.price}</Text>
+                            <Text>Name: {props.wine.name}</Text>
+                            <Text>Type: {props.wine.type}</Text>
+                            <Text>Price: R${props.wine.price}</Text>
                         </View>
                     </View>
+                    </TouchableOpacity>
 
                 </View>
             
 
 
         );
-    }
 }
 
 const styles = StyleSheet.create({
