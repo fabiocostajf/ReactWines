@@ -3,11 +3,11 @@ import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 
 export default function VinhoLista (props) {
-   
+      
         return (
                 <View style={styles.wineConatiner} >
                     <TouchableOpacity 
-                         onPress={() => props.navigation.navigate("WineDetails")}
+                         onPress={() => props.navigation.push("WineDetails")}
                     >
                     <View style={styles.wineContent}>
                         <Image

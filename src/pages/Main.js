@@ -6,7 +6,7 @@ import Container from '../components/Container'
 import VinhoLista from '../components/VinhoLista'
 import api from "../services/api"
 
-export default function Main (props) {
+export default function Main ({navigation}) {
   const [wines,setWines] = useState([]);  
   // constructor(props) {
   //   super(props);
@@ -26,11 +26,11 @@ export default function Main (props) {
           >
             <Text style={styles.submitText}>My Wines</Text>
           </TouchableOpacity>
-
+          
           <ScrollView>
             {
                wines.map(wine => (
-                <VinhoLista navigation={props.navigation} wine={wine} key={wine.id} />
+                <VinhoLista navigation={navigation} wine={wine} key={wine.id} />
               ))
             }
           </ScrollView>

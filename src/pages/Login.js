@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 
 
 import Container from '../components/Container'
 
-export default function Login (props){
+export default function Login ({navigation}){
   
     return (
       <Container>
@@ -13,7 +13,7 @@ export default function Login (props){
           <TextInput style={styles.input} placeholder="Password" />
           <TouchableOpacity
             style={styles.submitButton}
-            onPress={() => props.navigation.navigate("Main")}
+            onPress={() => navigation.navigate("Main")}
           >
             <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>

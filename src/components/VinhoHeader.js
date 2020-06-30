@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
-export default function VinhoHeader(props)  {
+export default function VinhoHeader()  {
     
         return (
             <View style={styles.headerMaster}>

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 
 
 import Container from '../components/Container'
 
-export default function WineDetails (props){
-    
+export default function WineDetails ({navigation}){
     return (
-      <Text>Details</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 30 }}>This is a modal!</Text>
+      <Button onPress={() => navigation.goBack()} title="Dismiss" />
+    </View>
     )
 }
 
