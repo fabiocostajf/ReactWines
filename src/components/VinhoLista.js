@@ -7,7 +7,7 @@ export default function VinhoLista (props) {
         return (
                 <View style={styles.wineConatiner} >
                     <TouchableOpacity 
-                         onPress={() => props.navigation.push("WineDetails")}
+                         onPress={() => props.navigation.navigate("WineDetails", {wineId: props.wine.id})}
                     >
                     <View style={styles.wineContent}>
                         <Image
