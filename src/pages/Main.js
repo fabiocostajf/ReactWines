@@ -1,46 +1,49 @@
-import React, { Component, useState  } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList } from 'react-native';
+import React, {Component, useState, useEffect} from 'react';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 
+import Container from '../components/Container';
+import VinhoLista from '../components/VinhoLista';
+import api from '../services/api';
 
-import Container from '../components/Container'
-import VinhoLista from '../components/VinhoLista'
-import api from "../services/api"
+export default function Main({navigation}) {
+  const [wines, setWines] = useState([]);
 
-export default function Main ({navigation}) {
-  const [wines,setWines] = useState([]);  
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { resposta: "", wines: [] }
+  useEffect(() => {
+    api.get('/test', {}).then((response) => setWines(response.data));
+  }, []);
+
+  // const testando = async () => {
+  //   const response = await api.get("/test", {});
+  //   setWines(response.data);
+
   // }
-  const testando = async () => {
-    const response = await api.get("/test", {});
-    setWines(response.data);
-    
-  }
-  
-    return (
-      <Container>
-        <TouchableOpacity
+
+  return (
+    wines && (
+      <Container navigation={navigation}>
+        {/* <TouchableOpacity
             style={styles.submitButton}
             onPress={testando}
           >
             <Text style={styles.submitText}>My Wines</Text>
           </TouchableOpacity>
-          
-          <ScrollView>
-            {
-               wines.map(wine => (
-                <VinhoLista navigation={navigation} wine={wine} key={wine.id} />
-              ))
-            }
-          </ScrollView>
+           */}
+        <ScrollView>
+          {wines.map((wine) => (
+            <VinhoLista navigation={navigation} wine={wine} key={wine.id} />
+          ))}
+        </ScrollView>
       </Container>
-
     )
+  );
 }
-
-
-
 
 const styles = StyleSheet.create({
   input: {
@@ -48,17 +51,17 @@ const styles = StyleSheet.create({
     margin: 15,
     height: 40,
     borderColor: '#44245A',
-    borderWidth: 1
+    borderWidth: 1,
   },
   submitButton: {
     backgroundColor: '#44245A',
     padding: 10,
     margin: 15,
     height: 40,
-    alignItems: "center",
-    color: '#ffffff'
+    alignItems: 'center',
+    color: '#ffffff',
   },
   submitText: {
-    color: "#fff"
-  }
-})
+    color: '#fff',
+  },
+});

@@ -1,35 +1,48 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-export default function VinhoHeader()  {
-    
-        return (
-            <View style={styles.headerMaster}>
-                <Image style={[styles.headerContent, styles.logo]}  source={require('../images/logo.png')} />
-            </View>
-        );
+export default function VinhoHeader(props) {
+    console.log("HEader"+ props.navigation)
+  return (
+    <View style={styles.headerMaster}>
+      <TouchableOpacity
+        style={styles.submitButton}
+        onPress={() => props.navigation.goBack()}>
+        <Text style={styles.submitText}> Go Back </Text>
+      </TouchableOpacity>
+      <Image
+        style={[styles.headerContent, styles.logo]}
+        source={require('../images/logo.png')}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    headerFontColor: {
-        color: 'red'
-    },
-    headerMaster: {
-        backgroundColor: "#44245A",
-        flex: 1.5,
-        flexDirection:"row",
-        justifyContent:"center",
-        height: 60
-    },
-    headerContent: {
-        width: "50%",
-        marginTop: 10,
-    },
-    logo:{
-        width:100,
-        height:40,
-        
-    }
-
-
-})
+  headerMaster: {
+    backgroundColor: '#44245A',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 70,
+  },
+  headerContent: {
+    width: '100%',
+  },
+  logo: {
+    width: 100,
+    height: 40,
+  },
+  submitButton: {
+    backgroundColor: '#44245A',
+    padding: 10,
+    margin: 15,
+    height: 40,
+    alignItems: 'center',
+    color: '#ffffff',
+    width: 80,
+  },
+  submitText: {
+    color: '#fff',
+  },
+});

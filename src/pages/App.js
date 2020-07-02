@@ -6,8 +6,17 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import Login from './Login';
 import Main from './Main';
 import WineDetails from './WineDetails';
+import MyWines from "./MyWines"
 
 
+const MainStack = createBottomTabNavigator();
+const MainStackScreen = () => {
+  return(
+  <MainStack.Navigator>
+    <MainStack.Screen name="Main" component={Main}/>
+    <MainStack.Screen name="MyWines" component={MyWines}/>
+  </MainStack.Navigator>)
+}
 
 const HomeStack = createStackNavigator()
 const HomeStackScreen = () => {
@@ -25,7 +34,7 @@ const HomeStackScreen = () => {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     }}>
-    <HomeStack.Screen name="Main" component={Main}  />
+    <HomeStack.Screen name="Main" component={MainStackScreen}  />
     <HomeStack.Screen options={{headerShown:false}} name="WineDetails" component={WineDetails} />
   </HomeStack.Navigator>
   )

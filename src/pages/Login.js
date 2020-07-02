@@ -7,7 +7,7 @@ import Container from '../components/Container'
 export default function Login ({navigation}){
   
     return (
-      <Container>
+      <Container navigation={navigation}>
         <View>
           <TextInput style={styles.input} placeholder="User"  keyboardType="email-address" />
           <TextInput style={styles.input} placeholder="Password" />
