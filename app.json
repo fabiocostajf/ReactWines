@@ -1,4 +1,18 @@
 {
-  "name": "myapp",
-  "displayName": "myapp"
+  "name": "fabiowines",
+  "displayName": "fabiowines",
+  "expo": {
+   "name": "fabiowines",
+   "icon": "./src/images/icon.png",
+   "version": "1.0.0",
+   "slug": "your-app-slug",
+   "ios": {
+     "bundleIdentifier": "com.fcosta.fabiowines",
+     "buildNumber": "1.0.0"
+   },
+   "android": {
+     "package": "com.fcosta.fabiowines",
+     "versionCode": 1
+   }
+  }
 }

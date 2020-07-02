@@ -10,14 +10,8 @@ export default function WineDetails({ navigation, route }) {
   const [data, setData] = useState({});
   const {wineId} = route.params;
   useEffect(() => {
-    console.log(route.params)
-    console.log("wine" + wineId)
-    const response = api.get("/details", { id:wineId }).then(response => setData(response.data))
-
+    api.get("/details", { id:wineId }).then(response => setData(response.data))
   }, [])
-
-
-
   return data && <WineDetail wine={data} navigation={navigation}/>
 }
 
